@@ -42,6 +42,8 @@ public class MarkdownEditor extends MultiPageEditorPart implements IResourceChan
 	/**
 	 * Creates a multi-page editor example.
 	 */
+	
+	private Markdown4jProcessor markdownProcessor;
 	public MarkdownEditor() {
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
@@ -69,6 +71,8 @@ public class MarkdownEditor extends MultiPageEditorPart implements IResourceChan
 	 * which shows html preview.
 	 */
 	void createPagePreview() {
+		markdownProcessor = new Markdown4jProcessor();
+		
 		Composite composite = new Composite(getContainer(), SWT.NONE);
 		FillLayout layout = new FillLayout();
 		composite.setLayout(layout);
@@ -171,11 +175,10 @@ public class MarkdownEditor extends MultiPageEditorPart implements IResourceChan
 		String editorText =
 				editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
 
-		String htmlText = "";
+		String htmlText = "<p>Error processing the input.</p>";
 		try {
-			htmlText = new Markdown4jProcessor().process(editorText);
+			htmlText = markdownProcessor.process(editorText);
 		} catch (IOException e) {
-			// e.printStackTrace();
 		}
 		
 		browser.setText(htmlText);
