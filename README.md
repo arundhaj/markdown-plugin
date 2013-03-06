@@ -1,6 +1,6 @@
 # Markdown Editor Plugin for Eclipse
 
-This plugin is used with Eclipse Indigo
+This plugin is tested with Eclipse Indigo and Juno on Windows 7
 
 Markdown parser [markdown4j][m4j] is used.
 
@@ -13,7 +13,7 @@ Markdown parser [markdown4j][m4j] is used.
 
 ![Markdown Preview][md_preview]
 
-[link][]
+[Project Link][link]
 
 [m4j]: https://code.google.com/p/markdown4j/
 [plugin]: http://media.arundhaj.com/projects/markdown-plugin/org.arundhaj.markdown_1.0.0.201303012319.jar
