@@ -132,6 +132,8 @@ public class MarkdownEditor extends MultiPageEditorPart implements IResourceChan
 		if (!(editorInput instanceof IFileEditorInput))
 			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
 		*/
+		String fileName = editorInput.getName();
+		setPartName(fileName);
 		super.init(site, editorInput);
 	}
 	/* (non-Javadoc)
